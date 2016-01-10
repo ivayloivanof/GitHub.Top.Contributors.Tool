@@ -1,5 +1,4 @@
 # Making simple requests to the github API
-
 import requests
 import operator
 
@@ -18,7 +17,7 @@ def get_contributors(repo, owner):
     contributors_api = '/stats/contributors'
     request_url = gh_repos_url + owner + '/' + repo + contributors_api
 
-    print 'Getting Contributors...'
+    print('Getting Contributors...')
     response = requests.get(request_url)
     response.raise_for_status()
 
@@ -63,5 +62,5 @@ def get_top_ten_contributors():
     contributors = get_contributor_details(contributors_json)
 
     for i in xrange(0, min(10, len(contributors))):
-        print str(i+1) + ") User: %s\n   Commits: %d" % contributors[i]
+        print(str(i+1) + ") User: %s\n   Commits: %d" % contributors[i])
 
