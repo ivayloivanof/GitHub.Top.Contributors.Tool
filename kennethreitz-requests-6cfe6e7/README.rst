@@ -1,6 +1,8 @@
 Requests: HTTP for Humans
 =========================
 
+url: https://github.com/kennethreitz/requests
+
 .. image:: https://img.shields.io/pypi/v/requests.svg
     :target: https://pypi.python.org/pypi/requests
 
