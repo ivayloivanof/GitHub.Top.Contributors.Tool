@@ -35,16 +35,15 @@ def get_contributors(repo, owner):
 #####################################################################
 def get_contributor_details(contributors_json):
     contributors = {}
-    for i in xrange(len(contributors_json)):
+    for i in range(len(contributors_json)):
         contributor = contributors_json[i]['author']['login']
         commits = contributors_json[i]['total']
         contributors[contributor] = commits
 
-    return sorted(contributors.items(), key=operator.itemgetter(1),
-        reverse=True)
+    return sorted(contributors.items(), key = operator.itemgetter(1), reverse = True)
 
 #####################################################################
-# get_top_ten_contributors: 
+# get_top_contributors:
 # - Get a list of the top 10 contributors to a particular github repo
 #
 # Parameters:
@@ -54,13 +53,13 @@ def get_contributor_details(contributors_json):
 # - a list of the names of the top 10 contributors and their commit 
 #   count
 #####################################################################
-def get_top_ten_contributors():
-    repo = raw_input('Repo Name: ')
-    owner = raw_input('Repo Owner: ')
+def get_top_contributors(number_contributors):
+    repo = input('Repo Name: ')
+    owner = input('Repo Owner: ')
 
     contributors_json = get_contributors(repo, owner)
     contributors = get_contributor_details(contributors_json)
 
-    for i in xrange(0, min(10, len(contributors))):
+    for i in range(0, min(number_contributors, len(contributors))):
         print(str(i+1) + ") User: %s\n   Commits: %d" % contributors[i])
 
