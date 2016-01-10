@@ -1,0 +1,3 @@
+from gh_request import get_top_contributors
+
+get_top_contributors(25)
